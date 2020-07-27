@@ -1,6 +1,6 @@
 class Api::V1::PlatformsController < ApplicationController
     def index
-        platforms = Platform.all
+        platforms = Platform.order(:name)
 
         render json: platforms.to_json(
             :include => {

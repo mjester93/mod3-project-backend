@@ -10,7 +10,7 @@
 Platform.destroy_all
 Game.destroy_all
 
-10.times do 
+3.times do 
     platform = Platform.create(name: Faker::Game.unique.platform)
 
     10.times do
