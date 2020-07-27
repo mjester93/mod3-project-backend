@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aggregated_rating: 1.5
+  aggregated_rating_count: 1
+  cover: 1
+  first_release_date: 2020-07-27 15:44:28
+  genres: 1
+  name: MyString
+  platforms: 1
+  screenshots: 1
+  storyline: MyString
+  summary: MyString
+
+two:
+  aggregated_rating: 1.5
+  aggregated_rating_count: 1
+  cover: 1
+  first_release_date: 2020-07-27 15:44:28
+  genres: 1
+  name: MyString
+  platforms: 1
+  screenshots: 1
+  storyline: MyString
+  summary: MyString
