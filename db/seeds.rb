@@ -9,12 +9,18 @@
 
 Platform.destroy_all
 Game.destroy_all
+User.destroy_all
+Review.destroy_all
+
+10.times do 
+    User.create(name: Faker::Name.unique.first_name)
+end
 
 3.times do 
     platform = Platform.create(name: Faker::Game.unique.platform)
 
     10.times do
-        Game.create(
+        game = Game.create(
             name: Faker::Game.unique.title,
             genre: Faker::Game.genre,
             storyline: Faker::Quote.famous_last_words,
@@ -22,6 +28,15 @@ Game.destroy_all
             first_release_date: Faker::Date.in_date_period,
             platform: platform
         )
+
+        5.times do
+            Review.create(
+                user_id: User.all.sample.id,
+                game_id: game.id,
+                score: rand(1..5),
+                summary: Faker::Lorem.paragraph(sentence_count: 2)
+            )
+        end
     end
 end
 
