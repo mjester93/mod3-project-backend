@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :games
       resources :platforms
       resources :reviews
+      resources :user_games
       get "users/find_user/:name", to: "users#find_user", as: "find_user"
     end
   end
