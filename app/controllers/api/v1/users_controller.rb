@@ -8,4 +8,9 @@ class Api::V1::UsersController < ApplicationController
         user = User.create(name: params[:name])
         render json: user.to_json()
     end
+
+    def find_user
+        user = User.find_by(name: params[:name])
+        render json: user.to_json()
+    end
 end
