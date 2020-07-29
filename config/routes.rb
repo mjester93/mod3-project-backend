@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      resources :user_wishlists
+    end
+  end
+  namespace :api do
+    namespace :v1 do
       resources :users
       resources :games
       resources :platforms
