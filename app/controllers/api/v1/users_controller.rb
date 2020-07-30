@@ -43,11 +43,17 @@ class Api::V1::UsersController < ApplicationController
 
     def delete_game
         user = User.find(params[:id])
-        game = user.owned_games.delete(params[:game_id])
+        user_game = UserGame.find_by(user_id: params[:id], game_id: params[:game_id])
+        UserGame.destroy(user_game.id)
 
-        render json: game
+        render json: user_game.game.to_json()
     end
 
     def delete_wishlist
+        user = User.find(params[:id])
+        user_wishlist = UserWishlist.find_by(user_id: params[:id], game_id: params[:game_id])
+        UserWishlist.destroy(user_wishlist.id)
+
+        render json: user_wishlist.game.to_json()
     end
 end
