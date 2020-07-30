@@ -12,4 +12,11 @@ class Api::V1::ReviewsController < ApplicationController
             :only => [:id, :score, :summary]
         )
     end
+
+    def destroy
+        review = Review.find(params[:review_id])
+        review.destroy
+
+        render json: review
+    end
 end
