@@ -47,4 +47,7 @@ class Api::V1::UsersController < ApplicationController
 
         render json: game
     end
+
+    def delete_wishlist
+    end
 end
