@@ -16,10 +16,39 @@ Review.destroy_all
     User.create(name: Faker::Name.unique.first_name)
 end
 
-3.times do 
-    platform = Platform.create(name: Faker::Game.unique.platform)
+User.create(name: 'Princeton The GOAT')
 
-    10.times do
+# 3.times do 
+#     platform = Platform.create(name: Faker::Game.unique.platform)
+
+#     10.times do
+#         game = Game.create(
+#             name: Faker::Game.unique.title,
+#             genre: Faker::Game.genre,
+#             storyline: Faker::Quote.famous_last_words,
+#             summary: Faker::Quote.yoda,
+#             first_release_date: Faker::Date.in_date_period,
+#             platform: platform
+#         )
+
+#         5.times do
+#             Review.create(
+#                 user_id: User.all.sample.id,
+#                 game_id: game.id,
+#                 score: rand(1..5),
+#                 summary: Faker::Lorem.paragraph(sentence_count: 2)
+#             )
+#         end
+#     end
+# end
+
+pc = Platform.create(name: 'PC')
+playstation = Platform.create(name: 'Playstation 4')
+switch = Platform.create(name: 'Switch')
+xbox = Platform.create(name: 'Xbox One')
+
+Platform.all.each do |platform|
+    rand(10..15).times do 
         game = Game.create(
             name: Faker::Game.unique.title,
             genre: Faker::Game.genre,
@@ -29,7 +58,7 @@ end
             platform: platform
         )
 
-        5.times do
+        rand(2..5).times do
             Review.create(
                 user_id: User.all.sample.id,
                 game_id: game.id,
@@ -39,4 +68,3 @@ end
         end
     end
 end
-
